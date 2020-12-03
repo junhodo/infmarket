@@ -1,7 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1acec07b-eef0-4c3c-ab9f-033cfe31f105" name="Default Changelist" comment="" />
+    <list default="true" id="1acec07b-eef0-4c3c-ab9f-033cfe31f105" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/20200614 회의 결과.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/PackageManage/PackageEnroll.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/PackageManage/PackageLookup.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/PackageManage/PackageManage.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/PackageManage/PackageModify.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -156,7 +164,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606977228227</updated>
-      <workItem from="1606977236677" duration="8719000" />
+      <workItem from="1606977236677" duration="8869000" />
     </task>
     <servers />
   </component>

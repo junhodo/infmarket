@@ -25,14 +25,13 @@ http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
     <url-pattern>/index</url-pattern>
 </servlet-mapping>
 
-<!--    상품 관리 시작-->
-    <servlet-mapping>
-        <servlet-name>packageManage</servlet-name>
-        <url-pattern>/packageManage</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>packageManage</servlet-name>
-        <jsp-file>/PackageManage/PackageManage.jsp</jsp-file>
-    </servlet>
-<!--    상품관리 끝-->
-</web-app> 
+<!--   아래 예시-->
+<!--    <servlet-mapping>-->
+<!--        <servlet-name>packageManage</servlet-name>-->
+<!--        <url-pattern>/packageManage</url-pattern>-->
+<!--    </servlet-mapping>-->
+<!--    <servlet>-->
+<!--        <servlet-name>packageManage</servlet-name>-->
+<!--        <jsp-file>/PackageManage/PackageManage.jsp</jsp-file>-->
+<!--    </servlet>-->
+</web-app>
