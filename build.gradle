@@ -1,0 +1,52 @@
+apply plugin: 'java' 
+apply plugin: 'war' 
+apply plugin: 'gretty'
+
+compileJava.options.encoding = 'UTF-8'
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+buildscript { 
+    repositories { 
+        jcenter() 
+    } 
+    
+    dependencies { 
+        classpath group:'org.akhikhl.gretty', name:'gretty-plugin', version:'+' 
+    } 
+} 
+
+repositories { 
+    jcenter() 
+} 
+
+dependencies { 
+
+    // junit4
+    testCompile 'junit:junit:4.12'
+
+    // servlet 3.1
+    providedCompile 'javax.servlet:javax.servlet-api:3.1.0' 
+
+    // lomok
+    compileOnly 'org.projectlombok:lombok:1.18.12'
+	annotationProcessor 'org.projectlombok:lombok:1.18.12'
+	
+	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
+
+    // mysql
+    compile 'mysql:mysql-connector-java:8.0.20'
+
+    // StringUtils
+    compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
+}
+
+
+// compileJava.options.encoding = 'UTF-8'
+
+// tasks.withType(JavaCompile){
+//     options.encoding = 'UTF-8'
+// }

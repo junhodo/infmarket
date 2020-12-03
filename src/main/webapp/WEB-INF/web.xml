@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" version="3.1">
+<description>MySQL</description>
+<resource-ref>
+    <description>DB Connection</description>
+    <res-ref-name>jdbc/mysql</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+</resource-ref>
+ 
+<welcome-file-list>
+    <welcome-file>/index.jsp</welcome-file>
+</welcome-file-list>
+<servlet>
+    <servlet-name>index</servlet-name>
+    <jsp-file>/index.jsp</jsp-file>
+</servlet>
+
+<servlet-mapping>
+    <servlet-name>index</servlet-name>
+    <url-pattern>/index</url-pattern>
+</servlet-mapping>
+
+<!--    상품 관리 시작-->
+    <servlet-mapping>
+        <servlet-name>packageManage</servlet-name>
+        <url-pattern>/packageManage</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>packageManage</servlet-name>
+        <jsp-file>/PackageManage/PackageManage.jsp</jsp-file>
+    </servlet>
+<!--    상품관리 끝-->
+</web-app> 
