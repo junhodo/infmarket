@@ -7,7 +7,13 @@ compileJava.options.encoding = 'UTF-8'
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-
+sourceSets {
+    main {
+        resources {
+            srcDirs "src/main/java"
+        }
+    }
+}
 buildscript { 
     repositories { 
         jcenter() 
@@ -30,11 +36,11 @@ dependencies {
     // servlet 3.1
     providedCompile 'javax.servlet:javax.servlet-api:3.1.0' 
 
-    // lomok
-    compileOnly 'org.projectlombok:lombok:1.18.12'
-	annotationProcessor 'org.projectlombok:lombok:1.18.12'
-	
-	testCompileOnly 'org.projectlombok:lombok:1.18.12'
+    // mybatis
+    annotationProcessor 'org.projectlombok:lombok:1.18.12'
+    compile 'org.mybatis:mybatis:3.5.4'
+
+    testCompileOnly 'org.projectlombok:lombok:1.18.12'
 	testAnnotationProcessor 'org.projectlombok:lombok:1.18.12'
 
     // mysql
@@ -43,10 +49,3 @@ dependencies {
     // StringUtils
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.0'
 }
-
-
-// compileJava.options.encoding = 'UTF-8'
-
-// tasks.withType(JavaCompile){
-//     options.encoding = 'UTF-8'
-// }

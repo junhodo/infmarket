@@ -1,0 +1,37 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="infMarket.models.mybatis.dao.MemberMapper">
+ <resultMap type="infMarket.models.mybatis.dto.Member" id="memberMap">
+  <id column="id" property="id"/>
+  <result column="pw" property="pw"/>
+ </resultMap>
+ <select id="selectAllMembers" resultMap="memberMap">
+  select id as id,
+   pw as pw
+  from Member;
+ </select>
+
+<!-- <select id="selectMember" parameterType="string" resultType="Member">-->
+<!--  select id as id,-->
+<!--   pw as pw-->
+<!--  from Member-->
+<!--  where id=#{id};-->
+<!-- </select>-->
+
+<!-- <insert id="insertMember" parameterType="Member">-->
+<!--  insert into Member (id, pw)-->
+<!--   values (#{id}, #{pw});-->
+<!-- </insert>-->
+
+<!-- <update id="updateMember" parameterType="Member">-->
+<!-- update Member set-->
+<!--   pw=#{pw}-->
+<!--  where id=#{id}-->
+<!-- </update>-->
+
+<!-- <delete id="deleteMember" parameterType="string">-->
+<!--  delete from Member,-->
+<!--   where id=#{id}-->
+<!-- </delete>-->
+</mapper>
