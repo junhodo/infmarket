@@ -1,0 +1,28 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="infMarket.models.mybatis.dao.Wish.WishMapper">
+
+ <select id="selectMemberWishList" parameterType="string" resultType="infMarket.models.mybatis.dto.Wish">
+    select * from WISH where MEMBER_ID = #{memberId} ORDER BY CREATED_DATE DESC
+ </select>
+
+<select id="selectMemberWishListInSell" parameterType="string" resultType="infMarket.models.mybatis.dto.Wish">
+    select A.WISH_ID, A.MEMBER_ID, A.SELL_POST_ID, B.ITEM_NAME
+    from WISH as A join SELL_POST as B on A.MEMBER_ID=#{memberId} and A.SELL_POST_ID=B.SELL_POST_ID
+    where B.STATUS="판매중" ORDER BY A.CREATED_DATE DESC
+ </select>
+
+<select id="selectWish" parameterType="int" resultType="infMarket.models.mybatis.dto.Wish">
+    select * from WISH where WISH_ID = #{wishId}
+ </select>
+
+<insert id="insertWish" parameterType="infMarket.models.mybatis.dto.Wish">
+  insert into WISH (SELL_POST_ID,MEMBER_ID,ITEM_NAME)
+   values (#{sell_post_id}, #{member_id}, #{item_name});
+ </insert>
+
+
+
+
+</mapper>

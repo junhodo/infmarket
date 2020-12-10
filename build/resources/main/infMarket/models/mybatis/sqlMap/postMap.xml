@@ -1,0 +1,38 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="infMarket.models.mybatis.dao.Post.PostMapper">
+
+ <select id="selectPost" parameterType="int" resultType="infMarket.models.mybatis.dto.Post">
+    select * from POST where POST_ID = #{postId}
+ </select>
+
+<select id="selectPostsByRange" parameterType="int" resultType="infMarket.models.mybatis.dto.Post">
+    select * from POST limit #{start},#{end}
+ </select>
+
+<select id="getTotalPageNum" resultType="int">
+    select count(*) from POST
+ </select>
+<select id="selectAllPost" resultType="infMarket.models.mybatis.dto.Post">
+    select * from POST
+ </select>
+
+<insert id="insertPost" parameterType="infMarket.models.mybatis.dto.Post">
+  insert into POST (MEMBER_ID, TITLE,TEXT,MEMBER_NAME)
+   values (#{member_id}, #{title}, #{text}, #{member_name});
+ </insert>
+
+<delete id="deletePost" parameterType="int">
+  delete from POST WHERE POST_ID=#{postId}
+ </delete>
+
+<update id="updatePost" parameterType="infMarket.models.mybatis.dto.Post">
+ update POST set
+  TITLE = #{title},
+  TEXT = #{text}
+  where POST_ID=#{post_id}
+ </update>
+
+
+</mapper>

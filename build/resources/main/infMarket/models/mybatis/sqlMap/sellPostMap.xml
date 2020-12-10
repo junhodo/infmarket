@@ -1,0 +1,40 @@
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="infMarket.models.mybatis.dao.SellPost.SellPostMapper">
+
+ <select id="selectSellPost" parameterType="int" resultType="infMarket.models.mybatis.dto.SellPost">
+    select * from SELL_POST where SELL_POST_ID = #{sellPostId}
+ </select>
+
+<select id="selectSellPostsByRange" parameterType="int" resultType="infMarket.models.mybatis.dto.SellPost">
+    select * from SELL_POST limit #{start},#{end}
+ </select>
+
+<select id="getTotalPageNum" resultType="int">
+    select count(*) from SELL_POST
+ </select>
+
+<insert id="insertSellPost" parameterType="infMarket.models.mybatis.dto.SellPost">
+  insert into SELL_POST (MEMBER_ID,ITEM_NAME,ITEM_DESCRIPTION,MEMBER_NAME, PRICE, IMAGE_URL)
+   values (#{member_id}, #{item_name}, #{item_description}, #{member_name}, #{price}, #{image_url});
+ </insert>
+
+<delete id="deleteSellPost" parameterType="int">
+  delete from SELL_POST WHERE SELL_POST_ID=#{sellPostId}
+ </delete>
+
+<update id="updateSellPost" parameterType="infMarket.models.mybatis.dto.SellPost">
+ update SELL_POST set
+  ITEM_NAME = #{item_name},
+  ITEM_DESCRIPTION = #{item_description},
+  PRICE = #{price},
+  IMAGE_URL = #{image_url},
+  STATUS = #{status}
+  where SELL_POST_ID=#{sell_post_id}
+ </update>
+
+<select id="selectAllSellPost" resultType="infMarket.models.mybatis.dto.SellPost">
+    select * from SELL_POST
+</select>
+</mapper>

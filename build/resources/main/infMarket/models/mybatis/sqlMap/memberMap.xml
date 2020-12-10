@@ -1,34 +1,44 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="infMarket.models.mybatis.dao.MemberMapper">
- <resultMap type="infMarket.models.mybatis.dto.Member" id="memberMap">
-  <id column="id" property="id"/>
-  <result column="pw" property="pw"/>
- </resultMap>
- <select id="selectAllMembers" resultMap="memberMap">
-  select id as id,
-   pw as pw
-  from Member;
+<mapper namespace="infMarket.models.mybatis.dao.Member.MemberMapper">
+
+ <select id="login" resultType="infMarket.models.mybatis.dto.Member">
+    select * from MEMBER where MEMBER_ID = #{id} and PASSWORD = #{pw}
  </select>
 
-<!-- <select id="selectMember" parameterType="string" resultType="Member">-->
-<!--  select id as id,-->
-<!--   pw as pw-->
-<!--  from Member-->
-<!--  where id=#{id};-->
-<!-- </select>-->
+ <resultMap id="Members" type="infMarket.models.mybatis.dto.Member">
+ </resultMap>
 
-<!-- <insert id="insertMember" parameterType="Member">-->
-<!--  insert into Member (id, pw)-->
-<!--   values (#{id}, #{pw});-->
-<!-- </insert>-->
+ <select id="selectMember" parameterType="string" resultType="infMarket.models.mybatis.dto.Member">
+    select * from MEMBER where MEMBER_ID = #{id}
+ </select>
 
-<!-- <update id="updateMember" parameterType="Member">-->
-<!-- update Member set-->
-<!--   pw=#{pw}-->
-<!--  where id=#{id}-->
-<!-- </update>-->
+ <select id="selectTopThreeLevelMember" resultMap="Members" >
+    select * from MEMBER ORDER BY LEVEL DESC limit 3
+ </select>
+
+ <insert id="insertMember" parameterType="infMarket.models.mybatis.dto.Member">
+  insert into MEMBER (MEMBER_ID, PASSWORD,NAME,GENDER,BIRTH_DATE,EMAIL,PHONE_NUMBER)
+   values (#{member_id}, #{password}, #{name}, #{gender}, #{birth_date}, #{email}, #{phone_number});
+ </insert>
+
+ <update id="updateMember" parameterType="infMarket.models.mybatis.dto.Member">
+ update MEMBER set
+   PASSWORD = #{password},
+   NAME = #{name},
+   GENDER = #{gender},
+   BIRTH_DATE = #{birth_date},
+   EMAIL = #{email},
+   POINT = #{point},
+   AUTHORITY = #{authority},
+   SELLER_RATING = #{seller_rating},
+   LEVEL = #{level},
+   PHONE_NUMBER = #{phone_number},
+   LAST_ATTENDANCE_DATE = #{last_attendance_date},
+   NUM_EVALUATED = #{num_evaluated}
+  where MEMBER_ID=#{member_id}
+ </update>
 
 <!-- <delete id="deleteMember" parameterType="string">-->
 <!--  delete from Member,-->
